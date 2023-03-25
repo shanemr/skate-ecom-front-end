@@ -1,0 +1,30 @@
+import logo from './logo.svg';
+import './App.css';
+import React,{useEffect, useState} from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from './Components/Header';
+import Home from './Components/Home';
+import Cart from './Components/Cart';
+import ProductPage from './Components/ProductPage';
+import { BrowserRouter,Route, Routes } from 'react-router-dom';
+
+
+function App() {
+  const [products, setProducts] = useState([]);
+
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Header/>}>
+            <Route index element={<Home/>}/>
+            <Route path='cart' element={<Cart/>}/>
+            <Route path ='products/:type' element={<ProductPage cartProducts={products} addProducts={setProducts}/>}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+
+export default App;

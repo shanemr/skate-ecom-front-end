@@ -1,0 +1,20 @@
+.main-sort-container{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 10%;
+}
+
+.sort-header{
+   min-width: 100%;
+   margin-left: 5%;
+}
+
+.sort-dropdown{
+    margin-left: 5%;
+    border-bottom: 1px solid lightgray;
+}
+
+.sort-dropdown-item:hover{
+    background-color: gold;
+}

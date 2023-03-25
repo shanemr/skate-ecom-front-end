@@ -1,0 +1,152 @@
+.header-tag{
+    padding: .5%;
+    margin-bottom: 1.2%;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-weight: 500;
+
+}
+
+.header-bar{
+    color: black;
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid gray;
+}
+
+.header-bar-list-left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3%;
+    list-style: none;
+    padding-top: .5%;
+    padding-bottom: .5%;
+    padding-left: 1%;
+    width: 80%;
+   
+}
+
+.dropdown-title{
+    background-color: white;
+    color: gray;
+    border: none;
+    font-size: large;
+    font-weight: 700;   
+}
+
+.dropdown:hover{
+    background-color: white;
+    font-size: x-large;
+}
+
+.dropdown-item:hover{
+   
+}
+
+
+.logo{
+  color: gray;
+  font-family: fantasy;
+}
+
+.header-bar-item{
+    margin-left: 2%;
+    display: inline-block;
+    font-size: large;
+    font-weight:700; 
+}
+
+.header-bar-item:hover{
+  border-bottom: 2px solid black;
+}
+
+.header-bar-item-dropdown{
+    display: inline-block;
+    font-size: large;
+    font-weight:700; 
+}
+
+.header-bar-item-dropdown:hover{
+    color: gold;
+}
+
+
+
+.header-bar-list-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    width: 20%;
+}
+
+.login-cart{
+    font-size: large;
+    text-decoration: none;
+    color: gray;
+}
+
+.login-cart:hover{
+    color: black;
+    
+}
+
+.search-box:hover{
+    border: none;
+}
+
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+    margin-top: 2%;
+    padding: 3%;
+}
+
+.footer-list{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+   
+}
+
+.footer-list-header{
+    align-self: flex-start;
+}
+
+.footer-item{
+    align-self: flex-start;
+    color: lightgray;
+}
+
+.footer-item:hover{
+    color: white;
+    cursor: pointer;
+}
+
+
+.subscribe-container{
+    justify-content: end;
+    margin-left: 50%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+}
+
+.subscribe-text{
+    align-self: flex-start;
+}
+
+.subscribe{
+    justify-content: end;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    gap: 10px;
+}
+

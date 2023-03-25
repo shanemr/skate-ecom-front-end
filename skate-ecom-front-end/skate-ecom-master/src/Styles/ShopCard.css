@@ -1,0 +1,19 @@
+.shop-card-container{
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+    min-height: 100%;
+    padding: 2%;
+    background-color:white;
+}
+
+.card-title{
+    margin-bottom: 5%;
+}
+
+
+.card-image-description{
+    
+}
+
+

@@ -1,0 +1,32 @@
+.product-card-container{
+    margin-top: 2%;
+   margin-bottom: 5%;
+   
+}
+
+.decks-product-image{
+    max-width: 300px;
+    max-height: 300px;
+    
+}
+
+.trucks-product-image{
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.wheels-product-image{
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.bearings-product-image{
+    min-width: none;
+    min-height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.product-image-container{
+   margin-bottom: 6%;
+}
