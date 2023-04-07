@@ -13,8 +13,18 @@
 .sort-dropdown{
     margin-left: 5%;
     border-bottom: 1px solid lightgray;
+   
 }
 
+.sort-dropdown-header{
+    font-weight: 600;
+}
+
+
+
+.sort-dropdown-item{
+    font-weight: 500;
+}
 .sort-dropdown-item:hover{
     background-color: gold;
 }

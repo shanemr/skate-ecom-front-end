@@ -26,7 +26,7 @@ function Header(){
                 {products ?
                     <ul className='header-bar-list-left'>
                         <Link to='/' style={{textDecoration:'none'}}>
-                            <h1 className='logo'>Skate-Ecom :|:</h1>
+                            <h1 className='logo'>Skate-Ecom <span style={{color:'gold'}}>:|:</span></h1>
                         </Link>                    
                         <li className='header-bar-item'>
                             <DropDown type={'Decks'} items={products.deckBrandNames}/>

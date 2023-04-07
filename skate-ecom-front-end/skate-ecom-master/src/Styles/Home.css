@@ -6,7 +6,7 @@
 
 .image-container{
     color: white;
-    background-image: url('D:\ReactApps\skate-ecom\public\images\homeBkgrOne.jpg');
+    background-image: url('C:\Users\shane\Documents\SkateEcom\skate-ecom-front-end\skate-ecom-front-end\skate-ecom-master\public\images\homeBkgrOne.jpg');
     min-height: 80vh;
     width: 100%;
     background-position-y: center;
@@ -18,10 +18,10 @@
 }
 
 .slogan{
-    margin-left: 2%;
-    margin-top: 2%;
-    width: 50%;
+    margin-left: 5%;
+    width: fit-content;
     font-size:5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .cards-container{

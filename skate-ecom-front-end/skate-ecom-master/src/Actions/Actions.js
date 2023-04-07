@@ -6,7 +6,7 @@ export function getAllProducts(type){
     return dispatch =>{
         axios.get('http://localhost:8765/all' + type)
              .then( result =>{
-                //console.log(result.data)
+                console.log(result.data)
                 dispatch(getProducts(result.data))
              })
              .catch(error =>{

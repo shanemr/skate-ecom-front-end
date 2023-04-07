@@ -25,12 +25,13 @@
     padding-bottom: .5%;
     padding-left: 1%;
     width: 80%;
+    color: black;
    
 }
 
 .dropdown-title{
     background-color: white;
-    color: gray;
+    color: black;
     border: none;
     font-size: large;
     font-weight: 700;   
@@ -47,7 +48,7 @@
 
 
 .logo{
-  color: gray;
+  color: black;
   font-family: fantasy;
 }
 
@@ -59,13 +60,13 @@
 }
 
 .header-bar-item:hover{
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid gold;
 }
 
 .header-bar-item-dropdown{
     display: inline-block;
     font-size: large;
-    font-weight:700; 
+    font-weight:500; 
 }
 
 .header-bar-item-dropdown:hover{
@@ -85,7 +86,7 @@
 .login-cart{
     font-size: large;
     text-decoration: none;
-    color: gray;
+    color: black;
 }
 
 .login-cart:hover{

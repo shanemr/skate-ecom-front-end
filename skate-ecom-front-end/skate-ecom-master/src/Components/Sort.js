@@ -61,7 +61,7 @@ function Sort({products, type, setFilter, filterType}){
                 </h5>
             </div>
             <Dropdown className='sort-dropdown' isOpen={brandDropdownOpen} toggle={brandToggle} direction={"down"}>
-                <DropdownToggle className="" color='none'>Brand</DropdownToggle>
+                <DropdownToggle className="sort-dropdown-header" color='none'>Brand</DropdownToggle>
                 <DropdownMenu>
                     <DropdownItem header>------Brands------</DropdownItem>
                     {products ? 
@@ -71,8 +71,8 @@ function Sort({products, type, setFilter, filterType}){
             </Dropdown>
             {type === 'Decks' ? 
             <Dropdown className='sort-dropdown' isOpen={colorDropdownOpen} toggle={colorToggle} direction={"down"}>
-                <DropdownToggle className="" color='none'>Color</DropdownToggle>
-                <DropdownMenu>
+                <DropdownToggle className="sort-dropdown-header" color='none'>Color</DropdownToggle>
+                <DropdownMenu >
                     <DropdownItem  header>------Colors------</DropdownItem>
                     {products ? 
                         findUniqueColors(products)
@@ -82,7 +82,7 @@ function Sort({products, type, setFilter, filterType}){
             : null}
             {type === 'Decks' || type === 'Wheels' ? 
             <Dropdown className='sort-dropdown'isOpen={sizeDropdownOpen} toggle={sizeToggle} direction={"down"} >
-                <DropdownToggle className="" color='none'>Size</DropdownToggle>
+                <DropdownToggle className="sort-dropdown-header" color='none'>Size</DropdownToggle>
                 <DropdownMenu>
                     <DropdownItem header>------Sizes------</DropdownItem>
                     {products ? 

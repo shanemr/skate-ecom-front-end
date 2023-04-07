@@ -37,6 +37,7 @@ function ProductPage({cartProducts,addProducts}){
         prods.quantity = p.quantity;
         prods.truckType = p.truckType;
         prods.purchaseQuantity = 1;
+        prods.bearingsType = p.bearingsType;
         return prods;
     }
 

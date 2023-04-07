@@ -9,6 +9,7 @@ const Product = ()=>{
             price :'',
             color: '',
             size: 0,
+            bearingsType: '',
             quantity: 0,
         },
         {

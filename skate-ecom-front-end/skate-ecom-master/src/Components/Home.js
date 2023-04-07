@@ -41,9 +41,9 @@ function Home(){
                 <h1>Home</h1>
             </div> */}
             <div className="image-container">
-                <h1 className="slogan">Ride with us</h1>
-                <h1 className="slogan" style={{margin:'none', width:'20%',textAlign:'center', marginRight:'50px'}}> & </h1>
-                <h1 className="slogan">skate in style</h1>
+                <h1 className="slogan" style={{marginTop:'10%'}}>Ride with style,</h1>
+                {/* <span style={{marginLeft:'15%', justifySelf:'center', fontSize:'3em', color:'white'}}>and</span> */}
+                <h1 className="slogan">shop with ease</h1>
             </div>
             <h3 className='card-header'>Shop Around</h3>
             

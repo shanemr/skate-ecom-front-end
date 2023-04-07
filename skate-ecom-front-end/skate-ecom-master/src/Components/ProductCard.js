@@ -14,6 +14,7 @@ function ProductCard({product}){
         dispatch(addToCart(product, product.purchaseQuantity))
     }
 
+    console.log(product)
     return(
         <div key={product.id} className='product-card-container'>
             <div className='product-image-container'>
