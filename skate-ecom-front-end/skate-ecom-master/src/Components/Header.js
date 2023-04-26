@@ -16,7 +16,7 @@ function Header(){
     
     useEffect(() =>{
         dispatch(getAllProductBrandNames())
-
+        
     },[])
    
     return(

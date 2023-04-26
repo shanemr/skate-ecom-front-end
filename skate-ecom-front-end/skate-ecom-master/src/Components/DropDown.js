@@ -17,6 +17,7 @@ const DropDown = (props) =>{
         <DropdownToggle className="dropdown-title" color='none'>{props.type}</DropdownToggle>
         <DropdownMenu >
             <DropdownItem header>------Brands------</DropdownItem>
+            <DropdownItem >View All</DropdownItem>
             { dropDownItems ? 
                 dropDownItems.map( item => {
                     return(

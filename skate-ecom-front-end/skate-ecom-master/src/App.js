@@ -20,6 +20,7 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path='cart' element={<Cart/>}/>
             <Route path ='products/:type' element={<ProductPage cartProducts={products} addProducts={setProducts}/>}/>
+            <Route path ='products/:type/:brand' element={<ProductPage cartProducts={products} addProducts={setProducts}/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

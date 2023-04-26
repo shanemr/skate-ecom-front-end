@@ -19,7 +19,6 @@ export function getAllProductBrandNames(){
     return dispatch =>{
         axios.get('http://localhost:8765/allBrands')
              .then( result =>{
-                console.log(result.data)
                 dispatch(getProductBrandNames(result.data))
              })
              .catch(error =>{
