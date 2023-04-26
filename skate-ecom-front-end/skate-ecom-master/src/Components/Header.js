@@ -79,7 +79,7 @@ function Header(){
                     </div>
                     <div className='subscribe'>
                         <Input type='email' placeholder='Enter email...'></Input>
-                        <Button>Subscribe</Button>
+                        <Button color='warning'>Subscribe</Button>
                     </div>
                 </div>
             </div>
