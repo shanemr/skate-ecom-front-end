@@ -4,15 +4,22 @@ import { Button } from 'reactstrap';
 import '../Styles/ProductCard.css'
 import {addToCart} from '../Actions/Actions'
 import { useDispatch } from 'react-redux';
+import PopUp from './PopUp';
+import { useState } from 'react';
 
-function ProductCard({product}){
+function ProductCard({product, handlePopUp, getProductInfo}){
     let params = useParams()
     const dispatch = useDispatch();
+    
 
     const handleAddToCart =(event) =>{
-        event.preventDefault()
-        dispatch(addToCart(product, product.purchaseQuantity))
+        event.preventDefault();
+        dispatch(addToCart(product, product.purchaseQuantity));
+        handlePopUp(true);
+        getProductInfo(product);
     }
+
+   
 
     console.log(product)
     return(
@@ -36,6 +43,7 @@ function ProductCard({product}){
              >Add to cart
              </Button>
         </div>
+        
     )
 }
 

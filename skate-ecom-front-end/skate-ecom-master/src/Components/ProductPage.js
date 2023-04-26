@@ -3,13 +3,18 @@ import axios from 'axios';
 import Sort from './Sort';
 import ProductCard from './ProductCard';
 import Product from './Product';
+import PopUp from './PopUp';
 import { useParams } from 'react-router-dom';
 import '../Styles/Products.css'
+import { Button } from 'reactstrap';
+
 
 function ProductPage({cartProducts,addProducts}){
     const [products, setProducts] = useState();
     const[prods, setProds] = useState();
     const[filterType, setFilterType] = useState();
+    const[popup, setPopUp] = useState(false);
+    const[productInfo, setProductInfo] = useState();
     let params = useParams()
 
 
@@ -24,6 +29,26 @@ function ProductPage({cartProducts,addProducts}){
                 console.log(error);
              })
     },[params.type])
+
+
+    useEffect(() =>{
+        window.scrollTo(0, 0);
+       console.log("From use effect", popup);
+    },[popup])
+
+    const getWindowLocation = () =>{
+        console.log("X coordinate", window.screenX);
+        console.log("Y coordinate", window.screenY);
+    }
+
+    const handlePopUp = (isOpen) =>{
+        setPopUp(isOpen);
+        getWindowLocation();
+    }
+
+    const getProductInfo = (product = new Product()) =>{
+        setProductInfo(product);
+    }
 
 
     const convertToProduct = (p) =>{
@@ -67,7 +92,11 @@ function ProductPage({cartProducts,addProducts}){
                       setFilter={setFilter} 
                       filterType={filterType}/>
             </div>
-            <div className='products-container'>
+            { popup ? 
+                    <PopUp status={popup} handlePopUp={handlePopUp} product={productInfo}></PopUp>   
+                    : null
+                }
+            <div className={popup ? 'popup-open' : 'products-container'}>
                 <h1 className='product-type-header'>Skateboard {params.type}</h1>
                 <p>Search Results: {prods ? prods.length : null}</p>
                 <div className={params.type.toLowerCase() + '-products'}>
@@ -79,6 +108,8 @@ function ProductPage({cartProducts,addProducts}){
                                         product={cartProds} 
                                         addProducts={addProducts}
                                         cartProducts={cartProducts}
+                                        handlePopUp={handlePopUp}
+                                        getProductInfo={getProductInfo}
                                     />
                             )
                         })
