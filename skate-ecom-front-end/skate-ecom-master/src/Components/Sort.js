@@ -22,7 +22,7 @@ function Sort({products, type, setFilter, filterType}){
         });
         let brands = Array.from(brandSet).map(p =>{
             return(
-                <DropdownItem key={p} className="sort-dropdown-item" onClick={setFilter('brand', {p})}>{p}</DropdownItem>
+                <DropdownItem key={p} className="sort-dropdown-item" onClick={() => setFilter('brand', {p})}>{p}</DropdownItem>
             )
         })
         return brands;
@@ -34,7 +34,7 @@ function Sort({products, type, setFilter, filterType}){
         });
       let colors = Array.from(colorSet).map(p =>{
             return(
-                <DropdownItem key={p} className="sort-dropdown-item" onClick={setFilter('color', {p})}>{p}</DropdownItem>
+                <DropdownItem key={p} className="sort-dropdown-item" onClick={() => setFilter('color', {p})}>{p}</DropdownItem>
             )
         })
         return colors;
@@ -46,7 +46,7 @@ function Sort({products, type, setFilter, filterType}){
         });
       let sizes = Array.from(sizeSet).map(p =>{
             return(
-                <DropdownItem key={p}  className="sort-dropdown-item" onClick={setFilter('size', {p})}>{p}</DropdownItem>
+                <DropdownItem key={p}  className="sort-dropdown-item" onClick={() => setFilter('size', {p})}>{p}</DropdownItem>
             )
         })
         return sizes;
@@ -91,7 +91,7 @@ function Sort({products, type, setFilter, filterType}){
                 </DropdownMenu>
             </Dropdown>
             : null}
-            <Button onClick={setFilter()} style={{width:'50%', marginTop:'5%', alignSelf:'center'}}>Reset filter</Button>
+            <Button onClick={() => setFilter()} style={{width:'50%', marginTop:'5%', alignSelf:'center'}}>Reset filter</Button>
         </div>
     )
 }

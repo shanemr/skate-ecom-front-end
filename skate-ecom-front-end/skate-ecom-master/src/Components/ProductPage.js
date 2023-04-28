@@ -6,7 +6,6 @@ import Product from './Product';
 import PopUp from './PopUp';
 import { useParams } from 'react-router-dom';
 import '../Styles/Products.css'
-import { Button } from 'reactstrap';
 
 
 function ProductPage({cartProducts,addProducts}){
@@ -32,18 +31,18 @@ function ProductPage({cartProducts,addProducts}){
 
 
     useEffect(() =>{
+        setFilterType();
+    },[params, products])
+
+
+    useEffect(() =>{
         window.scrollTo(0, 0);
-       console.log("From use effect", popup);
     },[popup])
 
-    const getWindowLocation = () =>{
-        console.log("X coordinate", window.screenX);
-        console.log("Y coordinate", window.screenY);
-    }
-
+    
     const handlePopUp = (isOpen) =>{
         setPopUp(isOpen);
-        getWindowLocation();
+        
     }
 
     const getProductInfo = (product = new Product()) =>{
@@ -67,8 +66,7 @@ function ProductPage({cartProducts,addProducts}){
     }
 
     
-    const setFilter = (category, value) => (event)=>{
-        event.preventDefault();
+    const setFilter = (category, value) =>{
         if(category === 'brand'){
             setFilterType('Brand - ' + value.p)
             setProds(products.filter(p => p.brandName === value.p));

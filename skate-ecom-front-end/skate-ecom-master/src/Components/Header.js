@@ -18,6 +18,14 @@ function Header(){
         dispatch(getAllProductBrandNames())
         
     },[])
+
+    let skateCategories = ['SkateBoard Completes','SkateBoard Decks', 'Trucks', 'Wheels', 'Bearings', 'Hardware']
+
+    let clothingCategories = ['Shirts', 'Hoodies', 'Pants', 'Shorts']
+
+    let shoesCategories = ['Sneakers', 'Boots', "Sandals", "Slip-Ons"]
+
+    let accesories = ['Hats', 'Beanies', 'Socks']
    
     return(
         <div>
@@ -30,16 +38,16 @@ function Header(){
                             {/* <h1 className='logo'>Skate-Ecom <span style={{color:'gold'}}>:</span>|<span style={{color:'gold'}}>:</span></h1> */}
                         </Link>                    
                         <li className='header-bar-item'>
-                            <DropDown type={'Decks'} items={products.deckBrandNames}/>
+                            <DropDown type={'Skate'} items={skateCategories}/>
                         </li>
                         <li className='header-bar-item'>
-                            <DropDown type={'Trucks'} items={products.trucksBrandNames}/>
+                            <DropDown type={'Clothing'} items={clothingCategories}/>
                         </li>
                         <li className='header-bar-item'>
-                            <DropDown type={'Wheels'} items={products.wheelsBrandNames}/>
+                            <DropDown type={'Shoes'} items={shoesCategories}/>
                         </li>
                         <li className='header-bar-item'>
-                            <DropDown type={'Bearings'} items={products.bearingsBrandNames}/>
+                            <DropDown type={'Accesories'} items={accesories}/>
                         </li>
                         <li className='header-bar-item search-box'>
                             <Input type='search'  placeholder='search...'>

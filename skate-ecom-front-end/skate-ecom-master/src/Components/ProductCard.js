@@ -21,7 +21,7 @@ function ProductCard({product, handlePopUp, getProductInfo}){
 
    
 
-    console.log(product)
+   
     return(
         <div key={product.id} className='product-card-container'>
             <div className='product-image-container'>
@@ -38,7 +38,7 @@ function ProductCard({product, handlePopUp, getProductInfo}){
             <Button 
                 color='warning' 
                 size='md' 
-                style={{width:'100%', color:'white',marginTop:'5%'}}
+                style={{width:'100%', color:'white',marginTop:'5%', fontWeight:'bold'}}
                 onClick={handleAddToCart}
              >Add to cart
              </Button>

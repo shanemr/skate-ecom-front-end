@@ -1,20 +1,25 @@
 import { React } from "react";
-import { Button } from "reactstrap";
+import { Button} from "reactstrap";
 import CartProduct from "./CartProduct";
 import '../Styles/Cart.css'
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
-
-function Cart(){
+function Cart(props){
     //const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.CartReducer.cartItems);
     const total = useSelector((state) => state.CartReducer.total);
+    const nav = useNavigate();
     
+    const handleCheckoutButton = () =>{
+        nav('/checkout');
+    }
 
     return(
         
         <div className='cart-container'>
+            
             <div className='cart-box'>
                 <h2>Cart Summary</h2>
                 {cartItems.length >= 1 ? 
@@ -27,7 +32,8 @@ function Cart(){
                 <div className="check-out">
                     <span>Shipping and taxes calculated at check out</span>
                     <p className='order-total-tag' style={{fontWeight:'bold'}}>Order Total = ${total.toFixed(2)} </p>
-                    <Button color='warning' className='check-out-btn'>Checkout</Button>
+                    <Button color='warning' className='check-out-btn' onClick={handleCheckoutButton}>Checkout</Button>
+                
                 </div>
             </div>
             

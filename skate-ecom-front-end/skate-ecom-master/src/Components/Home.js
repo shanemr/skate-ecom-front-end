@@ -45,7 +45,7 @@ function Home(){
                 {/* <span style={{marginLeft:'15%', justifySelf:'center', fontSize:'3em', color:'white'}}>and</span> */}
                 <h1 className="slogan">shop with ease</h1>
             </div>
-            <h3 className='card-header'>Shop Around</h3>
+            <h3 className='card-header'>Shop Skate Supplies</h3>
             
             <div className="cards-container"> 
                 {cardDetails ? 

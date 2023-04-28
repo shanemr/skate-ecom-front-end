@@ -26,7 +26,7 @@ const CartReducer =(state={cartItems: [], total:0},action) =>{
             } 
             return newCart;
         case 'REMOVE_FROM_CART':
-            console.log('purchase quantity', action.product.purchaseQuantity)
+         
             if(itemExists.length >= 1 && action.product.purchaseQuantity >= 2){
                 newCart = {
                     ...state, 

@@ -5,8 +5,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './Components/Header';
 import Home from './Components/Home';
 import Cart from './Components/Cart';
+import Checkout from './Components/Checkout';
 import ProductPage from './Components/ProductPage';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
+
 
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
             <Route index element={<Home/>}/>
             <Route path='cart' element={<Cart/>}/>
             <Route path ='products/:type' element={<ProductPage cartProducts={products} addProducts={setProducts}/>}/>
-            <Route path ='products/:type/:brand' element={<ProductPage cartProducts={products} addProducts={setProducts}/>}/>
+            <Route path='checkout' element={<Checkout/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

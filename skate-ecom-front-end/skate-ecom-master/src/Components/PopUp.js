@@ -28,8 +28,8 @@ function PopUp({status,product,handlePopUp}){
                 <span style={{fontWeight:'bold'}}>${product.price.toFixed(2)}</span> 
                 <p>The item has been added to your cart!</p>
                 <div className="buttons">
-                    <Button onClick={handleViewCart} color='warning'>View Cart</Button>
-                    <Button onClick={() => handlePopUp(false)} color='warning'>Close</Button>
+                    <Button onClick={handleViewCart} color='warning' style={{color:'white', fontWeight:'bold'}}>View Cart</Button>
+                    <Button onClick={() => handlePopUp(false)} color='warning' style={{color:'white', fontWeight:'bold'}}>Close</Button>
                 </div>
             </div>
             : null}
