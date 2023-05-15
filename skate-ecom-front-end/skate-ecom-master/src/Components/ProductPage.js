@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 import axios from 'axios';
 import Sort from './Sort';
 import ProductCard from './ProductCard';
@@ -14,6 +15,7 @@ function ProductPage({cartProducts,addProducts}){
     const[filterType, setFilterType] = useState();
     const[popup, setPopUp] = useState(false);
     const[productInfo, setProductInfo] = useState();
+    
     let params = useParams()
 
 
@@ -50,6 +52,8 @@ function ProductPage({cartProducts,addProducts}){
     }
 
 
+    
+
     const convertToProduct = (p) =>{
         let prods = Product();
         prods.brandId = p.brandId;
@@ -81,6 +85,10 @@ function ProductPage({cartProducts,addProducts}){
             setProds(products);
         }
     }
+
+
+
+  
     
     return(
         <div className='products-page-container'>
@@ -91,10 +99,12 @@ function ProductPage({cartProducts,addProducts}){
                       filterType={filterType}/>
             </div>
             { popup ? 
-                    <PopUp status={popup} handlePopUp={handlePopUp} product={productInfo}></PopUp>   
+                    <PopUp status={popup} handlePopUp={handlePopUp}  product={productInfo} ></PopUp>   
                     : null
                 }
+                
             <div className={popup ? 'popup-open' : 'products-container'}>
+           
                 <h1 className='product-type-header'>Skateboard {params.type}</h1>
                 <p>Search Results: {prods ? prods.length : null}</p>
                 <div className={params.type.toLowerCase() + '-products'}>
@@ -108,6 +118,7 @@ function ProductPage({cartProducts,addProducts}){
                                         cartProducts={cartProducts}
                                         handlePopUp={handlePopUp}
                                         getProductInfo={getProductInfo}
+                                        
                                     />
                             )
                         })

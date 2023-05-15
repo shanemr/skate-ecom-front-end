@@ -1,33 +1,67 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
 .product-card-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 2%;
-   margin-bottom: 5%;
-   width: 20%;
+    margin-bottom: 5%;
+    width: 25%;
+   
    
 }
 
+.product-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 90%;
+    
+}
+
+
+.product-image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 90%;
+    
+}
+
+
+
 .decks-product-image{
-    max-width: 300px;
-    max-height: 300px;
+    height: 100%;
+    width: 70%;
     
 }
 
 .trucks-product-image{
-    max-width: 250px;
-    max-height: 250px;
+    height: 100%;
+    width: 100%;
 }
 
 .wheels-product-image{
-    max-width: 250px;
-    max-height: 250px;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .bearings-product-image{
-    min-width: none;
-    min-height: 200px;
-    max-width: 200px;
-    max-height: 200px;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .product-image-container{
    margin-bottom: 6%;
+}
+
+.product:hover{
+    cursor: pointer;
 }

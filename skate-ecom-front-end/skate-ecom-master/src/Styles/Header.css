@@ -105,6 +105,12 @@
 
 .search-box:hover{
     border: none;
+  
+}
+
+
+.search-box{
+    width: 30%;
 }
 
 

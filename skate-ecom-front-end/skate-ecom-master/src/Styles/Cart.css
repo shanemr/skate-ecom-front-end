@@ -1,37 +1,140 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
 .cart-container{
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    height: 100%;
     width: 100%;
     margin-top: 2%;
-    
+    background-color: white;
+    padding: 0% 5% 0 5%;
+    gap: 2%;
+   
 }
 
 .cart-box{
    display: flex;
-   flex-direction: column;
-    border: 1px solid gray;
-    box-shadow: 50px 20px 20px gray;
-    width: 70%;
+   flex-direction: row;
+   justify-content: space-between;
+   height: 100%;
+   min-height: 60vh;
+    box-shadow: 1px 1px 20px gray;
+    width: 60%;
     padding: 20px;
-    gap: 30px;
-    background-color: #F9F9F9;
+    border-radius: 1%;
 }
+
+
+.cart-items-container{
+    height: 100%;
+    width: 100%;
+    padding-right: 5%;
+   
+}
+
+.cart-headers{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    font-weight: bold;
+}
+
+
+Table thead{
+    position: sticky;
+    top: 0px;
+    margin: 0 0 0 0;
+    background-color: white;
+    padding: 5%;
+}
+
+
+
+.cart-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+
+.cart-item-headers{
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-evenly;
+    width: 100%;
+    font-weight: bold;
+    
+}
+
 
 .check-out{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    margin-top: 1%;
+    width: 30%;
+    height: 30%;
+    position: sticky;
+    top: 0;
+    padding: 4%;
+    border-radius: 1%;
+    background-color: white;
+    box-shadow: 1px 1px 20px gray;
+
 }
 
 .order-total-tag{
     justify-self: center;
-    border-bottom: 1px solid gray;
-    width: 25%;
+    width: 100%;
+}
+
+.button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75%;
+    width: 100%;
+    margin-top: 5%;
+
 }
 
 .check-out-btn{
-    width: 25%;
+    height: 50%;
+    width: 60%;
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    padding: 3.5%;
+  
+}
+
+.keep-shopping-btn{
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    width: 20%;
+}
+
+.left-arrow{
+    height: 30px;
+    margin-right: 1%;
+}
+
+.right-arrow{
+    height: 1px;
+}
+
+.empty-cart{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
 }
 

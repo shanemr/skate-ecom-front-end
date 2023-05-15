@@ -1,23 +1,34 @@
+html,body{
+    height: 100%;
+}
+
 .main-sort-container{
     display: flex;
     flex-direction: column;
+    height: 80%;
     text-align: left;
     margin-top: 10%;
+    overflow: hidden;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
 .sort-header{
    min-width: 100%;
    margin-left: 5%;
+   
+   
 }
 
 .sort-dropdown{
-    margin-left: 5%;
+    margin-left: %;
     border-bottom: 1px solid lightgray;
-   
+    
 }
 
 .sort-dropdown-header{
     font-weight: 600;
+
 }
 
 

@@ -52,10 +52,12 @@ export function getCart(){
     }
 }
 
-export const addToCart = (product) =>{
+export const addToCart = (product, qty = 0) =>{
     return{
         type: 'ADD_TO_CART',
-        product       
+        product,
+        qty
+               
     }
 }
 
@@ -78,3 +80,23 @@ export const clearCart = () =>{
         type: 'CLEAR_CART'
     }
 }
+ export const shippingFromInfo = (data) =>{
+    return{
+        type: 'SHIPPING_FORM_DATA',
+        data
+    }
+ }
+
+ export const billingFromInfo = (data) =>{
+    return{
+        type: 'BILLING_FORM_DATA',
+        data
+    }
+ }
+
+ export const paymentFromInfo = (data) =>{
+    return{
+        type: 'PAYMENT_DATA',
+        data
+    }
+ }

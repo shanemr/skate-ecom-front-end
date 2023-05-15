@@ -1,15 +1,18 @@
 import React from 'react'
 import { Outlet , Link} from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Input, Button } from 'reactstrap';
+import { Input, Button} from 'reactstrap';
+import { Badge } from '@mui/material';
 import DropDown from './DropDown';
 import '../Styles/Header.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProductBrandNames } from '../Actions/Actions';
+import { icons } from 'react-icons';
 
 function Header(){
     const[search, setSearch]= useState('')
     const dispatch = useDispatch()
+    const cartItems = useSelector((state) => state.CartReducer.numItemsInCart);
    
     
     let products = useSelector(state => state.ProductReducer.brands);
@@ -50,15 +53,20 @@ function Header(){
                             <DropDown type={'Accesories'} items={accesories}/>
                         </li>
                         <li className='header-bar-item search-box'>
-                            <Input type='search'  placeholder='search...'>
+                            <Input type='search'  placeholder='What are you looming for?'>
 
                             </Input>
                         </li>
                     </ul>
                 : null}
                 <ul className='header-bar-list-right'>
-                    <li className='header-bar-item'>
-                        <Link to='/cart' className='login-cart'>Cart</Link>
+                    <li className='header-bar-item' >
+                        <Link to='/cart' className='login-cart'>                            
+                            <Badge color='error' badgeContent={cartItems} anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                            }} overlap='rectangular'><span style={{margin:'5%'}}>Cart</span></Badge>   
+                        </Link>
                     </li>
                     <li className='header-bar-item'>
                         <Link  className='login-cart'>Login</Link>
@@ -73,7 +81,7 @@ function Header(){
                     <li className='footer-list-header'>Get Help</li>
                     <li className='footer-item'>Customer Service</li>
                     <li className='footer-item'>Order Status</li>
-                    <li className='footer-item'>Subscrition</li>
+                    <li className='footer-item'>Subscription</li>
                 </ul>
                 <ul className='footer-list'>
                     <li className='footer-list-header'>About Us</li>

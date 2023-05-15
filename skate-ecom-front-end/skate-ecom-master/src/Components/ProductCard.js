@@ -12,9 +12,9 @@ function ProductCard({product, handlePopUp, getProductInfo}){
     const dispatch = useDispatch();
     
 
-    const handleAddToCart =(event) =>{
+    const handleView =(event) =>{
         event.preventDefault();
-        dispatch(addToCart(product, product.purchaseQuantity));
+       
         handlePopUp(true);
         getProductInfo(product);
     }
@@ -23,7 +23,7 @@ function ProductCard({product, handlePopUp, getProductInfo}){
 
    
     return(
-        <div key={product.id} className='product-card-container'>
+        <div key={product.id} className='product-card-container product' onClick={handleView}>
             <div className='product-image-container'>
                 <img src={product.imageUrl} alt={product.brandName}  className={params.type.toLocaleLowerCase() + '-product-image'}/>
             </div>
@@ -35,13 +35,6 @@ function ProductCard({product, handlePopUp, getProductInfo}){
                 <br/>
                 <span style={{fontWeight:'bold'}}>${product.price.toFixed(2)}</span> 
             </div>
-            <Button 
-                color='warning' 
-                size='md' 
-                style={{width:'100%', color:'white',marginTop:'5%', fontWeight:'bold'}}
-                onClick={handleAddToCart}
-             >Add to cart
-             </Button>
         </div>
         
     )
