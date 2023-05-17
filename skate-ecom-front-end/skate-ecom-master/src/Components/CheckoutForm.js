@@ -1,11 +1,17 @@
 import React from "react";
 import { useState, useEffect} from "react";
+import { useDispatch} from "react-redux";
 import { Button, Form, FormGroup, Input, Row, Col, Label} from 'reactstrap';
 import '../Styles/CheckoutForm.css'
 import '../Styles/Checkout.css'
+import { shippingFormInfo, billingFormInfo } from '../Actions/Actions';
 
 function CheckoutForm(props){
+
     
+
+    const dispatcher = useDispatch({});
+   
     const[form, setForm] = useState({
             firstName:'',
             lastName:'',
@@ -18,14 +24,38 @@ function CheckoutForm(props){
             email:''
     });
 
+    const defaultForm = {
+            firstName:'',
+            lastName:'',
+            streetAddress:'',
+            aptOrSuite:'',
+            city:'',
+            postCode:'',
+            state: '',
+            country:'',
+            email:''
+    }
+
 
     useEffect(() =>{
             updateProgressBar();
+            
     },[form])
 
-   
+
+     useEffect(() =>{
+        if(props.type === "Billing"){
+            if(props.formData){
+                console.log("Billing DATA SHOULD BE SET");
+                setForm(props.formData);
+            } else{
+                setForm(defaultForm);
+            }
+        }
         
-        
+     },[props.formData])
+
+     
     const handleFormChange = (type,e) =>{
         e.preventDefault();
         switch (type) {
@@ -63,19 +93,37 @@ function CheckoutForm(props){
     }
 
 
+    const sendNextFormType = (e) =>{
+        e.preventDefault();
+        props.handleNextForm(props.type);
+    }
+
+
     const validateForm = () => {
-        if(form.firstName.length >= 1 && form.lastName.length >= 1 && form.streetAddress.length >=1 
+        if(props.type === "Customer"){
+            
+            if(form.firstName.length >= 1 && form.lastName.length >= 1 && form.streetAddress.length >=1 
             && form.country.length >=1 && form.state.length >=1 && form.email.length >= 1 && form.city.length >= 1
             && form.postCode.length >=1){
+                dispatcher(shippingFormInfo(form));
                 return true;
             }
+
+        }
+        if(props.type === "Billing"){
+            if(form.firstName.length >= 1 && form.lastName.length >= 1 && form.streetAddress.length >=1 
+                && form.country.length >=1 && form.state.length >=1  && form.city.length >= 1
+                && form.postCode.length >=1){
+                    dispatcher(billingFormInfo(form));
+                    return true;
+                }
+        }
+            
 
             return false;
     }
 
     const updateProgressBar = () =>{
-        console.log()
-        console.log(validateForm());
         props.handleProgressBar(props.type, validateForm());
         
     }
@@ -85,6 +133,12 @@ function CheckoutForm(props){
         <div style={{display:'flex',justifyContent:'center',width:'100%'}}>
             <Form className='form'>
                     <h2 style={{alignSelf:'flex-start', marginBottom:'5%'}}>{props.type} Information</h2>
+                    { !props.formData ? 
+                        <FormGroup>
+                            <Label>Same as shipping?</Label>
+                            <Input id='same-as-shipping'type='checkbox'></Input>
+                        </FormGroup>
+                    : null}
                     <Row style={{textAlign:'left'}}>
                         <Col md={props.type === "Billing" ? 6 : 4}>
                             <FormGroup >
@@ -153,10 +207,15 @@ function CheckoutForm(props){
                         <Col md={4}>
                             <FormGroup style={{display:'flex', gap:'5%', alignItems:'center'}}>
                                 Same as billing?
-                                <Input id="billing-check" type="checkbox">Same as billing?</Input>
+                                <Input disabled={!validateForm()}id="billing-check" type="checkbox" onChange={props.handleCheckBillSame}>Same as billing?</Input>
                             </FormGroup>
                         </Col>    
                             : null}
+                        <Col md={12}>
+                            <FormGroup style={{display:'flex', gap:'5%', alignItems:'center'}}>
+                                <Button disabled={!validateForm()}  onClick={e =>sendNextFormType(e)}>Next</Button>
+                            </FormGroup>
+                        </Col>    
                     </Row>
                 </Form>
         </div>

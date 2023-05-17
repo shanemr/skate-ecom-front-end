@@ -80,21 +80,22 @@ export const clearCart = () =>{
         type: 'CLEAR_CART'
     }
 }
- export const shippingFromInfo = (data) =>{
+ export const shippingFormInfo = (data) =>{
+    console.log("SHIPPING INFO ACTION CALLED", data);
     return{
         type: 'SHIPPING_FORM_DATA',
         data
     }
  }
 
- export const billingFromInfo = (data) =>{
+ export const billingFormInfo = (data) =>{
     return{
         type: 'BILLING_FORM_DATA',
         data
     }
  }
 
- export const paymentFromInfo = (data) =>{
+ export const paymentFormInfo = (data) =>{
     return{
         type: 'PAYMENT_DATA',
         data

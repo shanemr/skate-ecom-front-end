@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Input } from "reactstrap";
+import { Button, Input } from "reactstrap";
 import { addToCart, removeAllFromCart, removeFromCart} from "../Actions/Actions";
 
 import '../Styles/CartProduct.css'
@@ -14,7 +14,7 @@ function CartProduct({product}){
     
    const handleIncrease = (event) =>{
         event.preventDefault()
-        dispatch(addToCart(product))
+        dispatch(addToCart(product, 1))
         
     }
 

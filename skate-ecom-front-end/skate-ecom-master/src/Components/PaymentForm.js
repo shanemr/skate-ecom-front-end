@@ -3,7 +3,7 @@ import { Form, FormGroup, Input, Label, Row, Col, Button } from "reactstrap";
 import '../Styles/PaymentForm.css';
 
 
-function PaymentForm(){
+function PaymentForm({progressTotal}){
     return(
         <div className="payment-form-container">
             <h2 style={{alignSelf:'flex-start'}}>Payment Information</h2>
@@ -51,7 +51,7 @@ function PaymentForm(){
                 <Row>
                     <Col>
                     <FormGroup>
-                        <Button id='pay-button' color='warning' style={{width:'30%', fontWeight:'bold', padding:'2%', color:'white'}}>Place Order</Button>
+                        <Button disabled={!progressTotal} id='pay-button' color='warning' style={{width:'30%', fontWeight:'bold', padding:'2%', color:'white'}}>Place Order</Button>
                     </FormGroup>
                     </Col>
                 </Row>

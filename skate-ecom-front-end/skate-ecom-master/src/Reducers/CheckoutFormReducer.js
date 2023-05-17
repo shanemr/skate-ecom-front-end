@@ -1,19 +1,20 @@
 import React from "react";
 
-const  CheckoutFormReducer = (state={shipping : {}, billing: {}, payment: {}},action) =>{
-
+const  CheckoutFormReducer = (formState={shipping : {}, billing: {}, payment: {}},action) =>{
+    console.log('INSIDE CHECKOUTFROM REDUCER');
     switch (action.type) {
+        
         case 'SHIPPING_FORM_DATA':
-            let newShipping = {...state, shipping: action.data}
+            let newShipping = {...formState, shipping: action.data}
             return newShipping;
         case 'BILLING_FROM_DATA':
-            let newBilling = {...state, billing: action.data}
+            let newBilling = {...formState, billing: action.data}
             return newBilling;
         case 'PAYMENT_DATA':
-            let newPayment = {...state, payment: action.data}
+            let newPayment = {...formState, payment: action.data}
             return newPayment;
         default:
-           return state;
+           return formState;
     }
 
 }

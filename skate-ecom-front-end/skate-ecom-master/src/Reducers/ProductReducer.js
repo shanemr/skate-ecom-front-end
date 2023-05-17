@@ -1,6 +1,7 @@
 
 const ProductReducer = (state={},action) =>{
     let newState;
+    console.log("PRODUCT REDUCER CALLED");
     switch (action.type) {
         case 'GET_PRODUCTS':
             newState = {

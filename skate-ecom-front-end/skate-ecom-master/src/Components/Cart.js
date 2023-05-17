@@ -12,6 +12,7 @@ function Cart(props){
     const total = useSelector((state) => state.CartReducer.total);
     const nav = useNavigate();
     const leftArrow = '/images/left-arrow.png';
+    const leftArrowWhite = '/images/left-arrow-white.png';
     const rightArrow = '/images/right-arrow.png';
     
     const handleCheckoutButton = () =>{
@@ -31,7 +32,7 @@ function Cart(props){
                     <h2>Cart Summary {'('}{numCartItems}{')'}</h2>
                     <Button color='none' className='keep-shopping-btn' onClick={handleKeepShopingBtn}>
                         <img className='left-arrow' src={leftArrow} alt='left arrow'/>
-                        Keep Shoping
+                        Keep Shopping
                     </Button>
                     </div>
                     <div className='cart-items-container'>
@@ -69,9 +70,9 @@ function Cart(props){
                     : 
                 <div className='empty-cart'>
                 <h2 style={{alignSelf:'center', justifySelf:'center', marginTop:'20%'}}>Your cart is empty!</h2>
-                <Button color='none' className='keep-shopping-btn' onClick={handleKeepShopingBtn}>
-                        <img className='left-arrow' src={leftArrow} alt='left arrow'/>
-                         Keep Shoping
+                <Button color='none' className='keep-shopping-btn' style={{alignSelf:'center',color:'white', backgroundColor:'black'}} onClick={handleKeepShopingBtn}>
+                        <img className='left-arrow' src={leftArrowWhite} alt='left arrow'/>
+                         Keep Shopping
                 </Button>
                 </div>
                 }
