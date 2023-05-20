@@ -53,7 +53,7 @@ function Header(){
                             <DropDown type={'Accesories'} items={accesories}/>
                         </li>
                         <li className='header-bar-item search-box'>
-                            <Input type='search'  placeholder='What are you looming for?'>
+                            <Input type='search'  placeholder='What are you looking for?'>
 
                             </Input>
                         </li>
@@ -69,7 +69,7 @@ function Header(){
                         </Link>
                     </li>
                     <li className='header-bar-item'>
-                        <Link  className='login-cart'>Login</Link>
+                        <Link  to='login' className='login-cart'>Login</Link>
                     </li>
                 </ul>
             </div>

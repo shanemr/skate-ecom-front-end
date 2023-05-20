@@ -1,14 +1,15 @@
 
 
 const CartReducer =(state={cartItems: [], total:0, numItemsInCart:0},action) =>{
-    let newCart;
-    console.log("QTY IS", typeof action.qty)
    
+    let newCart;
+
+    let itemExists = action.product ? state.cartItems.filter(i => i.brandId === action.product.brandId) : {};
+
     switch (action.type) {
         case 'GET_CART':
             return state;
         case 'ADD_TO_CART':
-            let itemExists = state.cartItems.filter(i => i.brandId === action.product.brandId)
             if(itemExists.length >= 1){
                 newCart = {
                     ...state, 

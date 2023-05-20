@@ -20,7 +20,8 @@ function Cart(props){
     }
 
     const handleKeepShopingBtn = () => {
-        nav(-1);
+        nav(-1 !== '/login' ? -1 : '/cart');
+        
     }
 
     return(
