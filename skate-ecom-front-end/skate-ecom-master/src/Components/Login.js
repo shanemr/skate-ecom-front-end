@@ -13,7 +13,7 @@ function Login(){
         pw: ''
     })
 
-    const[disabled, setDisabled] = useState(true)
+    const[disabled, setDisabled] = useState(false)
 
 
     const handleNameChange = (e) =>{

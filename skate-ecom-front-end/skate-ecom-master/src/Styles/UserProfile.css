@@ -1,0 +1,13 @@
+#main-container{
+    display: flex;
+}
+
+#side-nav-list{
+    width: 40%;
+    background-color: blue;
+}
+
+#current-active-content{
+    width: 60%;
+    background-color: red;
+}

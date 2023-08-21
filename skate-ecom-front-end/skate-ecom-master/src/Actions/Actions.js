@@ -37,9 +37,10 @@ export function getAllProductBrandNames(){
     }
 }
 
+
 export function authorization(){
     return dispatch =>{
-        axios.post(serverUrl + '/api/authinticate', headers)
+        axios.post(serverUrl + '/auth/authenticate', headers)
              .then(result => {
                     dispatch(authinticate(result.data))
                 })

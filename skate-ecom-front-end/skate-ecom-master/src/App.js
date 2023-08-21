@@ -8,6 +8,7 @@ import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
 import ProductPage from './Components/ProductPage';
 import Login from './Components/Login';
+import UserProfile from './Components/UserProfile';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -34,6 +35,7 @@ function App() {
             <Route path ='products/:type' element={<ProductPage cartProducts={products} addProducts={setProducts}/>}/>
             <Route path='checkout' element={<Checkout/>}/>
             <Route path='login' element={<Login/>}/>
+            <Route path='profile' element={<UserProfile/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
