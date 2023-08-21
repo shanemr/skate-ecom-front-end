@@ -1,10 +1,20 @@
 
 import axios from "axios"
 
+const serverUrl = process.env.REACT_APP_SERVER_URL;
+console.log(serverUrl);
+
+   const headers = {
+    'Access-Control-Allow-Origin' : '*',
+    'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS'
+    }
+
+
+
 
 export function getAllProducts(type){
     return dispatch =>{
-        axios.get('http://localhost:8765/all' + type)
+        axios.get(serverUrl + '/api/all' + type, headers)
              .then( result =>{
                 
                 dispatch(getProducts(result.data))
@@ -17,13 +27,26 @@ export function getAllProducts(type){
 
 export function getAllProductBrandNames(){
     return dispatch =>{
-        axios.get('http://localhost:8765/allBrands')
+        axios.get(serverUrl +'/api/allBrands', headers)
              .then( result =>{
                 dispatch(getProductBrandNames(result.data))
              })
              .catch(error =>{
                 console.log(error);
              })
+    }
+}
+
+export function authorization(){
+    return dispatch =>{
+        axios.post(serverUrl + '/api/authinticate', headers)
+             .then(result => {
+                    dispatch(authinticate(result.data))
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+
     }
 }
 
@@ -98,6 +121,13 @@ export const clearCart = () =>{
  export const paymentFormInfo = (data) =>{
     return{
         type: 'PAYMENT_DATA',
+        data
+    }
+ }
+
+ export const authinticate = (data) =>{
+    return{
+        type: 'AUTH',
         data
     }
  }

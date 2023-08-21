@@ -9,12 +9,21 @@ import Checkout from './Components/Checkout';
 import ProductPage from './Components/ProductPage';
 import Login from './Components/Login';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import {authorization } from './Actions/Actions';
+
 
 
 
 function App() {
   const [products, setProducts] = useState([]);
-
+  const dispatch = useDispatch();
+  
+  useEffect(() =>{
+    dispatch(authorization())
+  },[])
+  
   return (
     <div className="App">
       <BrowserRouter>

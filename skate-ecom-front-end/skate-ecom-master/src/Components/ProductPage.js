@@ -15,13 +15,14 @@ function ProductPage({cartProducts,addProducts}){
     const[filterType, setFilterType] = useState();
     const[popup, setPopUp] = useState(false);
     const[productInfo, setProductInfo] = useState();
+    const serverUrl = process.env.REACT_APP_SERVER_URL;
     
     let params = useParams()
 
 
     useEffect(() =>{
         window.scrollTo(0, 0);
-        axios.get('http://localhost:8765/all' + params.type)
+        axios.get(serverUrl + '/api/all' + params.type)
              .then( result =>{
                 setProds(result.data);
                 setProducts(result.data);
