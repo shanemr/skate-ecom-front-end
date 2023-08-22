@@ -1,6 +1,7 @@
 
 import axios from "axios"
 
+
 const serverUrl = process.env.REACT_APP_SERVER_URL;
 console.log(serverUrl);
 
@@ -38,18 +39,6 @@ export function getAllProductBrandNames(){
 }
 
 
-export function authorization(){
-    return dispatch =>{
-        axios.post(serverUrl + '/auth/authenticate', headers)
-             .then(result => {
-                    dispatch(authinticate(result.data))
-                })
-                .catch(error => {
-                    console.log(error);
-                })
-
-    }
-}
 
 
 
@@ -126,9 +115,16 @@ export const clearCart = () =>{
     }
  }
 
- export const authinticate = (data) =>{
+ export const authenticateSuccess = (data) =>{
     return{
-        type: 'AUTH',
+        type: 'SUCCESS',
+        data
+    }
+ }
+
+ export const authenticateFailure = (data) =>{
+    return{
+        type: 'ERROR',
         data
     }
  }
