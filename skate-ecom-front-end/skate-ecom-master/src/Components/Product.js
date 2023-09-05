@@ -1,21 +1,19 @@
 
 
 const Product = ()=>{
-   return [ 
+   return (
             {
-            brandId: '',
             brandName:'',
             imageUrl: '',
             price :'',
             color: '',
             size: 0,
+            description: '',
             bearingsType: '',
             quantity: 0,
-        },
-        {
-            purchaseQuantity: 0
         }
-    ]
+        
+   )
 }
 
 export default Product;
