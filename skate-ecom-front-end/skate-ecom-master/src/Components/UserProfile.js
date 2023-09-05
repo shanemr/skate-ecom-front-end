@@ -8,6 +8,7 @@ import axios from "axios";
 const UserProfile = () =>{
     const serverUrl = process.env.REACT_APP_SERVER_URL;
     const token = useSelector((state) => state.AuthReducer.token);
+    const isLoggedIn = useSelector((state) => state.AuthReducer.token);
 
     useEffect(() =>{
         axios.get(serverUrl + '/profile', token)
@@ -18,11 +19,13 @@ const UserProfile = () =>{
 
 
     return(
-        {isLoggedIn ? : {redirect}}
+        
         <div id='main-container'>
             <div id = 'side-nav-list'>NAV</div>
             <div id='current-active-content'>BODY</div>
         </div>
+            
+        
     )
 }
 

@@ -115,10 +115,10 @@ export const clearCart = () =>{
     }
  }
 
- export const authenticateSuccess = (data) =>{
+ export const authenticateSuccess = (user) =>{
     return{
         type: 'SUCCESS',
-        data
+        user
     }
  }
 

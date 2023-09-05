@@ -48,7 +48,7 @@ function CartProduct({product}){
                     <img className='product-image' src={product.imageUrl} alt='product'/>
                     { product.truckType ? <span >{product.brandName + ' - '  + product.truckType}</span>: null}
                     { product.bearingsType ? <span>{product.brandName + ' - '  + product.bearingsType}</span>: null}
-                    { product.brandId.match(/(Wheels)/g) ? <span>{product.brandName + ' - ' + product.size + '"'}</span>: null}
+                    { product.description === "Wheels" ? <span>{product.brandName + ' - ' + product.size + '"'}</span>: null}
                     { product.color ? <span>{product.brandName + ' - '  + product.size + '"'}</span>: null}
                 
             </td>

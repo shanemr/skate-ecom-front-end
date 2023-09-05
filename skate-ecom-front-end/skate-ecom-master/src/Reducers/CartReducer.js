@@ -4,7 +4,7 @@ const CartReducer =(state={cartItems: [], total:0, numItemsInCart:0},action) =>{
    
     let newCart;
 
-    let itemExists = action.product ? state.cartItems.filter(i => i.brandId === action.product.brandId) : {};
+    let itemExists = action.product ? state.cartItems.filter(i => i.description === action.product.description) : {};
 
     switch (action.type) {
         case 'GET_CART':
@@ -14,7 +14,7 @@ const CartReducer =(state={cartItems: [], total:0, numItemsInCart:0},action) =>{
                 newCart = {
                     ...state, 
                         cartItems: state.cartItems.map(
-                            (prod) => prod.brandId === action.product.brandId? 
+                            (prod) => prod.description === action.product.description? 
                                     {...prod, purchaseQuantity: itemExists[0].purchaseQuantity + action.qty}
                                    : prod
                     ),
@@ -35,7 +35,7 @@ const CartReducer =(state={cartItems: [], total:0, numItemsInCart:0},action) =>{
                 newCart = {
                     ...state, 
                         cartItems: state.cartItems.map(
-                            (prod) => prod.brandId === action.product.brandId? 
+                            (prod) => prod.description === action.product.description? 
                                     {...prod, purchaseQuantity: itemExists[0].purchaseQuantity - 1}
                                    : prod
                     ),
@@ -46,7 +46,7 @@ const CartReducer =(state={cartItems: [], total:0, numItemsInCart:0},action) =>{
                 console.log('image', action.product.imageUrl);
                 newCart = {
                     ...state,
-                        cartItems: state.cartItems.filter(prod => prod.brandId !== action.product.brandId),
+                        cartItems: state.cartItems.filter(prod => prod.description !== action.product.description),
                         total: (state.total - action.product.price >= 0 ? state.total - action.product.price : 0),
                         numItemsInCart: (0)
                 }
@@ -55,7 +55,7 @@ const CartReducer =(state={cartItems: [], total:0, numItemsInCart:0},action) =>{
         case 'REMOVE_ALL_FROM_CART':
             newCart = {
                 ...state,
-                    cartItems: state.cartItems.filter(prod => prod.brandId !== action.product.brandId),
+                    cartItems: state.cartItems.filter(prod => prod.description !== action.product.description),
                     total: state.total.toFixed(2) - +(action.product.price * action.product.purchaseQuantity).toFixed(2),
                     numItemsInCart: (state.numItemsInCart - action.product.purchaseQuantity)
             }

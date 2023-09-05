@@ -1,12 +1,20 @@
-const  AuthReducer = (state={isLoggedIn: false}, action) =>{
+const  AuthReducer = (state={user:{}}, action) =>{
 
+    let user = {
+        email: '',
+        isLoggedIn: false,
+        token: ''
+    }
     switch (action.type) {
         case 'SUCCESS':
-                let validLogin = {...state, token: action.data, isLoggedIn: true}
-                return validLogin;
+                user = {...state, user:  action.user}
+                return user;
         case 'ERROR':
-               let invalidLogin = {...state, isLoggedIn: false}
-               return invalidLogin;
+               user = {...state, user: {}}
+               return user;
+        case 'LOGOUT':
+            user = {...state, user: {}}
+            return user;
         default:
             return state;
     }

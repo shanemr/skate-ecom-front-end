@@ -36,7 +36,6 @@ function Login(){
         axios.post(serverUrl + '/auth/authenticate', userData)
              .then(result => {
                      dispatch(authenticateSuccess(result.data))
-                     localStorage = {user: }
                      setErrorMessage();
                      navigate("/profile");
                 })
