@@ -35,7 +35,12 @@ function Login(){
       function handleLogin(e){
         axios.post(serverUrl + '/auth/authenticate', userData)
              .then(result => {
-                     dispatch(authenticateSuccess(result.data))
+                    let user = {
+                        email: userData.email,
+                        isLoggedIn: true,
+                        token: result.data
+                    }
+                     dispatch(authenticateSuccess(user))
                      setErrorMessage();
                      navigate("/profile");
                 })
