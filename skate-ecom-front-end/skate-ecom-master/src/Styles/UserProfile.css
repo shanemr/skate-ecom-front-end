@@ -1,13 +1,33 @@
 #main-container{
     display: flex;
+    flex-direction: column;
+    padding: 3% 7%;
+}
+
+
+#nav-content-container{
+    display: flex;
+    justify-content: center;
 }
 
 #side-nav-list{
-    width: 40%;
-    background-color: blue;
+    width: 20%;
+    
 }
 
 #current-active-content{
     width: 60%;
-    background-color: red;
+   
+}
+
+#nav-list{
+    list-style: none;
+}
+
+.side-nav-list-item{
+    margin-bottom: 3%;
+}
+
+.side-nav-list-item-icon{
+    margin-right: 5%;;
 }
