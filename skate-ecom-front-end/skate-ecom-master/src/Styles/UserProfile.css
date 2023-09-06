@@ -16,18 +16,32 @@
 }
 
 #current-active-content{
+    display: flex;
+    text-align: justify;
     width: 60%;
    
 }
 
 #nav-list{
     list-style: none;
+    
 }
 
 .side-nav-list-item{
-    margin-bottom: 3%;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+
+.side-nav-list-item:hover{
+    cursor: pointer;
 }
 
 .side-nav-list-item-icon{
     margin-right: 5%;;
+}
+
+#account-details{
+    list-style: none;
+    text-align: justify;
+    padding: 0;
 }
