@@ -128,3 +128,19 @@ export const clearCart = () =>{
         data
     }
  }
+
+
+ export const userProfileInfo = (data) =>{
+    return{
+        type: 'PROFILE',
+        data
+    }
+ }
+
+ export const logout = () =>{
+    return{
+        type: 'LOGOUT'
+        
+    }
+    
+ }

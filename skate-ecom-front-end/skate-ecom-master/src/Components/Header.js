@@ -7,12 +7,13 @@ import DropDown from './DropDown';
 import '../Styles/Header.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProductBrandNames } from '../Actions/Actions';
-import { icons } from 'react-icons';
+import { BsFillCartFill, BsFillPersonFill } from 'react-icons/bs';
 
 function Header(){
     const[search, setSearch]= useState('')
     const dispatch = useDispatch()
     const cartItems = useSelector((state) => state.CartReducer.numItemsInCart);
+    const isLoggedIn = useSelector((state) => state.AuthReducer.user.isLoggedIn);
    
     
     let products = useSelector(state => state.ProductReducer.brands);
@@ -65,11 +66,11 @@ function Header(){
                             <Badge color='error' badgeContent={cartItems} anchorOrigin={{
                             vertical: 'top',
                             horizontal: 'right',
-                            }} overlap='rectangular'><span style={{margin:'5%'}}>Cart</span></Badge>   
+                            }} overlap='rectangular'><BsFillCartFill size={23}/></Badge>   
                         </Link>
                     </li>
                     <li className='header-bar-item'>
-                        <Link  to='login' className='login-cart'>Login</Link>
+                        <Link  to={isLoggedIn ? 'profile' : 'login'} className='login-cart'><BsFillPersonFill size={28}/></Link>
                     </li>
                 </ul>
             </div>

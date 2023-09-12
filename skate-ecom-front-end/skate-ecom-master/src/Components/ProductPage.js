@@ -22,7 +22,9 @@ function ProductPage({cartProducts,addProducts}){
 
     useEffect(() =>{
         window.scrollTo(0, 0);
-        axios.get(serverUrl + '/api/all' + params.type)
+        axios.get(serverUrl + '/api/all/category',
+            { params:{category: params.type } 
+        })
              .then( result =>{
                 setProds(result.data);
                 setProducts(result.data);

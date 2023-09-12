@@ -24,6 +24,13 @@ function CheckoutForm(props){
             email:''
     });
 
+    const[order, setOrder] = useState({
+        purchasedItems: [{}],
+        payment: {},
+        price: 0,
+        date: null
+    })
+
     const defaultForm = {
             firstName:'',
             lastName:'',
