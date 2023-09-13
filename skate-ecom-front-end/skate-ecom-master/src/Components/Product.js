@@ -8,11 +8,11 @@ const Product = ()=>{
             price :'',
             color: '',
             size: 0,
-            description: '',
-            bearingsType: '',
-            quantity: 0,
-        }
-        
+            category: '',
+            rating: 0.0,
+            description : '',
+            truckType: '',   
+        } 
    )
 }
 

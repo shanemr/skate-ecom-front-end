@@ -80,13 +80,10 @@ const UserProfile = () =>{
         } else{
             navigate('/login');
         }
-        console.log(userProfileInfo);
     },[])
 
 
-
     return(
-        
         <div id='main-container'  style={{textAlign:'center'}}>
             <h3>Welcome, {userProfileInfo.firstName}</h3>
             <div id='nav-content-container'>

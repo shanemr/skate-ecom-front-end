@@ -28,7 +28,7 @@ export function getAllProducts(type){
 
 export function getAllProductBrandNames(){
     return dispatch =>{
-        axios.get(serverUrl +'/api/allBrands', headers)
+        axios.get(serverUrl +'/api/all/brands')
              .then( result =>{
                 dispatch(getProductBrandNames(result.data))
              })
@@ -38,6 +38,20 @@ export function getAllProductBrandNames(){
     }
 }
 
+export function submitOrder(userOrder, userEmail){
+    return dispatch =>{
+        axios.post(serverUrl +'/purchase',  userOrder, {params: {email: userEmail}})
+            .then( r =>{
+                dispatch(clearCart());
+                console.log(r.data);
+
+                return r.data;
+            })
+            .catch(error =>{
+                console.log(error);
+            })
+    }
+}
 
 
 

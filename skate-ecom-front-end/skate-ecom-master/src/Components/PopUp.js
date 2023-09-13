@@ -26,6 +26,7 @@ function PopUp({status,product,handlePopUp}){
     }
 
     const handleQtyChange = (e) =>{
+        console.log("value", e.target.value);
         setQty(e.target.value);
     }
 
@@ -65,7 +66,7 @@ function PopUp({status,product,handlePopUp}){
                 <div className="popup-buttons">
                     <div style={{display:'flex', gap:'5%', justifyContent:'center'}}>
                         <Label for='qty' size='lg'>Qty:</Label>
-                        <Input type='number' id='qty' value={qty} min={1} max={product.quantity} onChange={handleQtyChange} style={{width:'50%'}}></Input>
+                        <Input type='number' id='qty' value={qty} min={1} max={50} onChange={handleQtyChange} style={{width:'50%'}}></Input>
                     </div>
                     <Button color='none' 
                             size='md' 

@@ -1,16 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
-import { Button } from 'reactstrap';
 import '../Styles/ProductCard.css'
-import {addToCart} from '../Actions/Actions'
-import { useDispatch } from 'react-redux';
-import PopUp from './PopUp';
-import { useState } from 'react';
 
 function ProductCard({product, handlePopUp, getProductInfo}){
     let params = useParams()
-    const dispatch = useDispatch();
-    
 
     const handleView =(event) =>{
         event.preventDefault();

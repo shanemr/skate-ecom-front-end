@@ -13,14 +13,11 @@ function Login(){
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState(null);
-    const [invalidLogin, setinvalidLogin] = useState();
     const serverUrl = process.env.REACT_APP_SERVER_URL;
     const[userData, setUser] = useState({
         email: '',
         password: ''
     })
-
-    const[disabled, setDisabled] = useState(false)
 
 
     const handleNameChange = (e) =>{

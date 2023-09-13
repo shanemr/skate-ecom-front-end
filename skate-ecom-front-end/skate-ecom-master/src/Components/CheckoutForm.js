@@ -4,33 +4,16 @@ import { useDispatch} from "react-redux";
 import { Button, Form, FormGroup, Input, Row, Col, Label} from 'reactstrap';
 import '../Styles/CheckoutForm.css'
 import '../Styles/Checkout.css'
-import { shippingFormInfo, billingFormInfo } from '../Actions/Actions';
+import { shippingFormInfo, billingFormInfo } from '../Actions/Actions';import { useSelector } from 'react-redux';
+import axios from 'axios';
+const serverUrl = process.env.REACT_APP_SERVER_URL;
 
 function CheckoutForm(props){
-
-    
+    const token = useSelector((state) => state.AuthReducer.user.token);
+    const isLoggedIn = useSelector((state) => state.AuthReducer.user.isLoggedIn);
 
     const dispatcher = useDispatch({});
    
-    const[form, setForm] = useState({
-            firstName:'',
-            lastName:'',
-            streetAddress:'',
-            aptOrSuite:'',
-            city:'',
-            postCode:'',
-            state: '',
-            country:'',
-            email:''
-    });
-
-    const[order, setOrder] = useState({
-        purchasedItems: [{}],
-        payment: {},
-        price: 0,
-        date: null
-    })
-
     const defaultForm = {
             firstName:'',
             lastName:'',
@@ -42,10 +25,53 @@ function CheckoutForm(props){
             country:'',
             email:''
     }
+   
+    const[form, setForm] = useState({
+        firstName:'',
+        lastName:'',
+        email:'',
+        streetAddress:'',
+        aptOrSuite:'',
+        city:'',
+        postCode:'',
+        state: '',
+        country:''
+        
+});
+    
+    useEffect(() =>{
+        if(isLoggedIn){
+        axios.request({
+            headers: {
+              Authorization: `Bearer ${token}`
+            },
+            method: "GET",
+            url: serverUrl + '/profile'
+          })
+          .then( user => {
+            let address = user.data.shipAddress.filter(a => a.preferredAddress === true);
+            setForm({...form, 
+                firstName: user.data.firstName,
+                lastName: user.data.lastName,
+                email: user.data.email,
+                streetAddress: address[0].streetAddress,
+                aptOrSuite: address[0].aptOrSuite,
+                city: address[0].city,
+                postCode: address[0].zipCode,
+                state: address[0].state,
+                country: address[0].country,
+                })
+            
+          })
+        .catch(error => console.log(error))
+        } 
+        validateForm();
+    },[])
 
 
     useEffect(() =>{
             updateProgressBar();
+            validateForm();
             
     },[form])
 
@@ -53,7 +79,6 @@ function CheckoutForm(props){
      useEffect(() =>{
         if(props.type === "Billing"){
             if(props.formData){
-                console.log("Billing DATA SHOULD BE SET");
                 setForm(props.formData);
             } else{
                 setForm(defaultForm);
@@ -108,10 +133,9 @@ function CheckoutForm(props){
 
     const validateForm = () => {
         if(props.type === "Customer"){
-            
-            if(form.firstName.length >= 1 && form.lastName.length >= 1 && form.streetAddress.length >=1 
+            if(isLoggedIn || (form.firstName.length >= 1 && form.lastName.length >= 1 && form.streetAddress.length >=1 
             && form.country.length >=1 && form.state.length >=1 && form.email.length >= 1 && form.city.length >= 1
-            && form.postCode.length >=1){
+            && form.postCode.length >=1) ){
                 dispatcher(shippingFormInfo(form));
                 return true;
             }

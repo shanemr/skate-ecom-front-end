@@ -4,6 +4,7 @@ import CartProduct from "./CartProduct";
 import '../Styles/Cart.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { clearCart } from "../Actions/Actions";
 
 
 function Cart(props){
@@ -11,6 +12,7 @@ function Cart(props){
     const cartItems = useSelector((state) => state.CartReducer.cartItems);
     const total = useSelector((state) => state.CartReducer.total);
     const nav = useNavigate();
+    const dispatch = useDispatch();
     const leftArrow = '/images/left-arrow.png';
     const leftArrowWhite = '/images/left-arrow-white.png';
     const rightArrow = '/images/right-arrow.png';
@@ -22,6 +24,10 @@ function Cart(props){
     const handleKeepShopingBtn = () => {
         nav(-1 !== '/login' ? -1 : '/cart');
         
+    }
+
+    const handleClearCart = () =>{
+        dispatch(clearCart());
     }
 
     return(
@@ -65,6 +71,7 @@ function Cart(props){
                                     : null}
                             </tbody>
                         </Table>
+                        <Button onClick={handleClearCart}>Clear Cart</Button>
                     </div>
                             
                 </div>

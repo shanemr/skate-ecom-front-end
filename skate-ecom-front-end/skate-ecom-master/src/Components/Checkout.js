@@ -6,13 +6,16 @@ import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import ItemSummary from './ItemSummary';
 import PaymentForm from './PaymentForm';
+import { useNavigate } from 'react-router-dom';
+
+
 
 function Checkout(){
-
+   
     const cartItems = useSelector((state) => state.CartReducer.cartItems);
     const total = useSelector((state) => state.CartReducer.total);
     const formData = useSelector((formState) => formState.CheckoutFormReducer.shipping);
-    
+    const navigate = useNavigate();
     const[checkoutTotal,setCheckoutTotal] = useState(0);
     const[shipBillSame, setShipBillSame] = useState(false);
     const[shippingCost, setShippingCost] = useState(0)
@@ -28,9 +31,11 @@ function Checkout(){
             return total;
         }
     });
+    
+    
+
 
     const handleNextForm = (formType, e) =>{
-        
         switch (formType) {
             case 'Customer':
                 console.log('CUSTOMER TYPE')
@@ -72,6 +77,7 @@ function Checkout(){
         }
     }
 
+  
 
     const updateShippingCost = (e) =>{
         setShippingCost(Number(e.target.value));
@@ -90,7 +96,10 @@ function Checkout(){
     }
 
     useEffect(() =>{
-        setTaxes(total * 0.0825)
+        setTaxes(total * 0.0825);
+        if(cartItems.length <= 0){
+            navigate('/');
+        }
     },[cartItems])
 
     useEffect(() =>{
@@ -175,7 +184,7 @@ function Checkout(){
                         </FormGroup>
                     </Form>
                 </div>
-                    : nextForm === 'Payment' ?  <PaymentForm progressTotal={checkoutProgress.progressTotal()}></PaymentForm>
+                    : nextForm === 'Payment' ?  <PaymentForm progressTotal={checkoutProgress} cartItems={cartItems} checkoutTotal={checkoutTotal}></PaymentForm>
                     : null}  
                 </div>
             </div>

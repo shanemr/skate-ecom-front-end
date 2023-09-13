@@ -56,20 +56,9 @@ function ProductPage({cartProducts,addProducts}){
 
 
     
-
     const convertToProduct = (p) =>{
-        let prods = Product();
-        prods.brandId = p.brandId;
-        prods.brandName = p.brandName;
-        prods.imageUrl = p.imageUrl;
-        prods.size = p.size;
-        prods.price = p.price;
-        prods.color = p.color;
-        prods.quantity = p.quantity;
-        prods.truckType = p.truckType;
-        prods.purchaseQuantity = 1;
-        prods.bearingsType = p.bearingsType;
-        return prods;
+        p.purchaseQuantity = 1;
+        return p;
     }
 
     
