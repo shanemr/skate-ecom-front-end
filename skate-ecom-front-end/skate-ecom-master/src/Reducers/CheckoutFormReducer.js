@@ -1,7 +1,5 @@
-import React from "react";
 
 const  CheckoutFormReducer = (formState={shipping : {}, billing: {}, payment: {}},action) =>{
-    console.log('INSIDE CHECKOUTFROM REDUCER');
     switch (action.type) {
         
         case 'SHIPPING_FORM_DATA':

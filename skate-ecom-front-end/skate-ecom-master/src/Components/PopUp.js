@@ -26,7 +26,6 @@ function PopUp({status,product,handlePopUp}){
     }
 
     const handleQtyChange = (e) =>{
-        console.log("value", e.target.value);
         setQty(e.target.value);
     }
 

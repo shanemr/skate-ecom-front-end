@@ -3,19 +3,11 @@ import axios from "axios"
 
 
 const serverUrl = process.env.REACT_APP_SERVER_URL;
-console.log(serverUrl);
 
-   const headers = {
-    'Access-Control-Allow-Origin' : '*',
-    'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS'
-    }
-
-
-
-
+   
 export function getAllProducts(type){
     return dispatch =>{
-        axios.get(serverUrl + '/api/all' + type, headers)
+        axios.get(serverUrl + '/api/all' + type)
              .then( result =>{
                 
                 dispatch(getProducts(result.data))
@@ -108,7 +100,6 @@ export const clearCart = () =>{
     }
 }
  export const shippingFormInfo = (data) =>{
-    console.log("SHIPPING INFO ACTION CALLED", data);
     return{
         type: 'SHIPPING_FORM_DATA',
         data

@@ -37,12 +37,8 @@ function Home(){
     ])
     return(
         <div className="home-container">
-            {/* <div className='intro-header'>
-                <h1>Home</h1>
-            </div> */}
             <div className="image-container">
                 <h1 className="slogan" style={{marginTop:'10%'}}>Ride with style,</h1>
-                {/* <span style={{marginLeft:'15%', justifySelf:'center', fontSize:'3em', color:'white'}}>and</span> */}
                 <h1 className="slogan">shop with ease</h1>
             </div>
             <h3 className='card-header'>Shop Skate Supplies</h3>

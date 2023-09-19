@@ -9,6 +9,7 @@ import Checkout from './Components/Checkout';
 import ProductPage from './Components/ProductPage';
 import Login from './Components/Login';
 import UserProfile from './Components/UserProfile';
+import SignUp from './Components/SignUp';
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -34,6 +35,7 @@ function App() {
             <Route path='checkout' element={<Checkout/>}/>
             <Route path='login' element={<Login/>}/>
             <Route path='profile' element={<UserProfile/>}/>
+            <Route path='sign-up' element={<SignUp/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

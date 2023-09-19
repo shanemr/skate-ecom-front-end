@@ -167,7 +167,7 @@ function CheckoutForm(props){
                     { !props.formData ? 
                         <FormGroup>
                             <Label>Same as shipping?</Label>
-                            <Input id='same-as-shipping'type='checkbox'></Input>
+                            <Input id='same-as-shipping'type='checkbox'/>
                         </FormGroup>
                     : null}
                     <Row style={{textAlign:'left'}}>
@@ -237,8 +237,8 @@ function CheckoutForm(props){
                         {props.type === "Customer" ? 
                         <Col md={4}>
                             <FormGroup style={{display:'flex', gap:'5%', alignItems:'center'}}>
-                                Same as billing?
-                                <Input disabled={!validateForm()}id="billing-check" type="checkbox" onChange={props.handleCheckBillSame}>Same as billing?</Input>
+                                <Label htmlFor="billing-check">Same as billing?</Label>
+                                <Input disabled={!validateForm()}id="billing-check" type="checkbox" onChange={props.handleCheckBillSame}/>
                             </FormGroup>
                         </Col>    
                             : null}

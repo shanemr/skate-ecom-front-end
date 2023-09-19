@@ -1,5 +1,5 @@
 import { React } from "react";
-import { Button, Table, InputGroup, InputGroupAddon, Input} from "reactstrap";
+import { Button, Table, Input} from "reactstrap";
 import CartProduct from "./CartProduct";
 import '../Styles/Cart.css'
 import { useDispatch, useSelector } from "react-redux";
@@ -65,7 +65,7 @@ function Cart(props){
                                 {cartItems.length >= 1 ? 
                                 cartItems.map(p =>{
                                     return(
-                                        <CartProduct key={p.brandId} product={p}/>
+                                        <CartProduct key={p.description} product={p}/>
                                     )
                                     })
                                     : null}
@@ -93,7 +93,7 @@ function Cart(props){
                    <span style={{fontWeight:'bold'}}>{' Discount Code '}</span> 
                 ------------------</p>
                 <div style={{display:'flex', alignItems:'center', justifyContent:'center',hieght:'100%', gap:'1%', marginBottom:'5%'}}>
-                    <Input placeholder="Enter code"  style={{width:'60%'}}/>
+                    <Input type='input' placeholder="Enter code"  style={{width:'60%'}}/>
                     <Button style={{display:'block',color:'white', backgroundColor:'black', width:'40%', fontWeight:'bold', padding:'2%'}}>Apply</Button>
                </div> 
                 <p className='order-total-tag' >

@@ -104,7 +104,7 @@ function ProductPage({cartProducts,addProducts}){
                         prods.map( p =>{
                             let cartProds = convertToProduct(p)
                             return(
-                                <ProductCard key={cartProds.brandId} 
+                                <ProductCard key={cartProds.description} 
                                         product={cartProds} 
                                         addProducts={addProducts}
                                         cartProducts={cartProducts}

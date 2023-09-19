@@ -38,7 +38,6 @@ function Checkout(){
     const handleNextForm = (formType, e) =>{
         switch (formType) {
             case 'Customer':
-                console.log('CUSTOMER TYPE')
                     if(shipBillSame){
                         setCheckoutProgress({...checkoutProgress, billing: 25});
                         setNextForm('Shipping')
@@ -87,7 +86,6 @@ function Checkout(){
     
     const handleCheckBillSame = (e) =>{
         setShipBillSame(!shipBillSame);    
-        console.log('Ship Bill Same', shipBillSame);
     }
         
 
@@ -109,7 +107,6 @@ function Checkout(){
 
     
     const handleProgressBar = (progressType, isVal) =>{
-        console.log(checkoutProgress.progressTotal())
             switch (progressType){
                 case 'Customer':
                     if(checkoutProgress.customer < 25 && isVal){
@@ -120,18 +117,13 @@ function Checkout(){
                     }
                     break;
                 case 'Billing':
-                    console.log("Billing");
-                    console.log(isVal)
                     if(checkoutProgress.billing < 25 && isVal){
-                        console.log("Billing SET TO 25");
                             setCheckoutProgress({...checkoutProgress, billing: checkoutProgress.billing + 25});
                     }
                     if(checkoutProgress.billing === 25 && !isVal){
-                        console.log("Billing SET TO 0");
                         setCheckoutProgress({...checkoutProgress, billing: 0});
                     } break;
                 case 'Shipping':
-                    console.log("SHIPPING");
                     if(checkoutProgress.shipping < 25){
                         setCheckoutProgress({...checkoutProgress, shipping: checkoutProgress.shipping + 25});
                     }
@@ -206,7 +198,7 @@ function Checkout(){
                         {cartItems.length >= 1 ? 
                             cartItems.map(p =>{
                                 return(
-                                    <ItemSummary key={p.brandId} item={p}/>
+                                    <ItemSummary key={p.description} item={p}/>
                                 )
                             })
                         : null}  

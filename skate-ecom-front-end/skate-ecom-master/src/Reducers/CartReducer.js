@@ -1,12 +1,9 @@
 
 
 const CartReducer =(state={cartItems: [], total:0, numItemsInCart:0},action) =>{
-   
     let newCart = [];
-
     let itemExists = action.product ? state.cartItems.filter(i => i.description === action.product.description) : {};
-    console.log("ITEM EXISTS",itemExists);
-    console.log(action.product);
+    
     switch (action.type) {
         case 'GET_CART':
             return state;
@@ -44,7 +41,6 @@ const CartReducer =(state={cartItems: [], total:0, numItemsInCart:0},action) =>{
                     numItemsInCart: state.numItemsInCart - 1
                 }
             } else{
-                console.log('image', action.product.imageUrl);
                 newCart = {
                     ...state,
                         cartItems: state.cartItems.filter(prod => prod.description !== action.product.description),
@@ -62,7 +58,6 @@ const CartReducer =(state={cartItems: [], total:0, numItemsInCart:0},action) =>{
             }
             return newCart;
         case 'CLEAR_CART':
-            console.log("CLEAR CART CALLED");
             newCart = {...state, cartItems: [], total: 0, numItemsInCart: 0}
             return newCart;
         default:

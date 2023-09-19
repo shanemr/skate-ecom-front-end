@@ -1,10 +1,10 @@
 import React from 'react'
 import {Form, FormGroup, Input, Button, Label} from 'reactstrap'
+import { Link } from 'react-router-dom'
 import {useState} from 'react'
 import '../Styles/Login.css'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { authenticateSuccess, authenticateFailure} from '../Actions/Actions'
-import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -65,9 +65,9 @@ function Login(){
                     <Input id='pw' type='password' value={userData.password} onChange={handlePwChange}></Input>
                 </FormGroup>
                 <FormGroup id='btn-form-group' className='form-groups'>
-                    <Button color='primary' id='login-btn' disabled={!userData.email || !userData.password} onClick={handleLogin}>LOGIN</Button>
+                    <Button  style={{backgroundColor:'black'}}id='login-btn' disabled={!userData.email || !userData.password} onClick={handleLogin}>LOGIN</Button>
                 </FormGroup>
-                <span>New User? Create Account!</span>
+                <span><Link to='/sign-up'>Create Account</Link> <Link to='/sign-up'>Forgot Password?</Link></span>
             </Form>
 
         </div>

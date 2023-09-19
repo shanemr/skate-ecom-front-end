@@ -13,7 +13,6 @@ const DropDown = (props) =>{
 
 
     function handleNav(item) {
-      console.log(item)
       if(item === "SkateBoard Decks"){
         item = "Decks"
       }
@@ -21,7 +20,6 @@ const DropDown = (props) =>{
       nav('/products/' + item );
     }
 
-    console.log(props.items);
     
     return(
       <div>

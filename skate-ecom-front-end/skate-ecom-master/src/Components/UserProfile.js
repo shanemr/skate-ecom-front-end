@@ -111,7 +111,6 @@ const UserProfile = () =>{
                         <li>{userProfileInfo.address[0].streetAddress}</li>
                         <li>{userProfileInfo.address[0].city}, {userProfileInfo.address[0].state} {userProfileInfo.address[0].zipCode}</li>
                     </ul>
-                    {console.log(userProfileInfo)}
                 </div>: 
                 activeContent === 'orders' ? 
                 <div>

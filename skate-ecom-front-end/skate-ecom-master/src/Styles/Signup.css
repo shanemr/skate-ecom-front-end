@@ -1,0 +1,60 @@
+body, html{
+    height: 100%;
+    width: 100%;
+}
+#main-sign-up-container{
+    height: 65vh;
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    
+}
+
+#sign-up-form-container{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content:center;
+    border-right: 1px solid black;
+    padding: 2%;
+
+}
+
+#sign-up-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    padding: 3%;
+}
+
+.sign-up-details-container{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position:relative;
+}
+
+
+.sign-up-bck-image-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    width: 100%;
+}
+
+.sign-up-bck-image-container::before{
+    content: "";
+    align-self:center;
+    display: block;
+    position: absolute;
+    background-image: url('C:\Users\shane\Documents\SkateEcom\skate-ecom-front-end\skate-ecom-front-end\skate-ecom-master\public\images\backgrounds\pexels-cottonbro-studio-10675618.jpg');
+    background-size: cover;
+    height: 100%;
+    width: 100%; 
+    opacity: 60%;  
+    z-index: -1;
+}

@@ -7,8 +7,6 @@ import '../Styles/CartProduct.css'
 
 function CartProduct({product}){
     const dispatch = useDispatch();
-    const[dropdownOpen, setDropdownOpen] = useState(false);
-    const toggle = () => setDropdownOpen((prevState) => !prevState);
     const[quantity, setQuantity] = useState(product.purchaseQuantity);
 
     
@@ -56,7 +54,7 @@ function CartProduct({product}){
                 <p className='product-price'>{"$"+product.price}</p>
             </td>
             <td>
-                <Input type='number' className='quantity-dropdown' value={quantity} onChange={handleProductAmountChange}>{product.purchaseQuantity}</Input>
+                <Input type='number' className='quantity-dropdown' value={product.purchaseQuantity} onChange={handleProductAmountChange}/>
             </td>
             <td>
                 <p className='product-price'>{'$' + product.price * product.purchaseQuantity}</p>

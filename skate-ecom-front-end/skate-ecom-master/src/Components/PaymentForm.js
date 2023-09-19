@@ -45,9 +45,6 @@ function PaymentForm({progressTotal, checkoutTotal, cartItems}){
     
     const handlePaymentSubmit = (e) =>{
         e.preventDefault();
-        
-        console.log("ORDER PLACED", order);
-        console.log("Payment", payment);
         dispatch(submitOrder(order, email));
         
     }
