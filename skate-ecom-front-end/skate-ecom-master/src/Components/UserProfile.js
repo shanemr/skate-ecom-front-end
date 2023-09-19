@@ -71,7 +71,7 @@ const UserProfile = () =>{
             firstName: user.data.firstName,
             lastName: user.data.lastName,
             email: user.data.email,
-            address: user.data.shipAddress,
+            address: user.data.shipAddress ? user.data.shipAddress : null,
             phoneNum: user.data.phoneNum,
             orders: user.data.orders
 
@@ -85,7 +85,7 @@ const UserProfile = () =>{
 
     return(
         <div id='main-container'  style={{textAlign:'center'}}>
-            <h3>Welcome, {userProfileInfo.firstName}</h3>
+            <h3 style={{marginLeft:'5%', marginBottom:'2%', width:'80%', alignSelf:'center', textAlign:'justify'}}>Welcome, {userProfileInfo.firstName} {userProfileInfo.lastName}</h3>
             <div id='nav-content-container'>
             
             <div id = 'side-nav-list'>
@@ -104,12 +104,16 @@ const UserProfile = () =>{
             <div id='current-active-content'>
                 {activeContent === 'account' ? 
                 <div style={{display:'flex', flexDirection:'column'}}>
-                    <h4>Shane Ray</h4>
                     <ul id='account-details'>
                         <li>{userProfileInfo.email}</li>
                         <li>{userProfileInfo.firstName} {userProfileInfo.lastName}</li>
+                        {userProfileInfo.address ? 
+                        <ul id='account-details'>
                         <li>{userProfileInfo.address[0].streetAddress}</li>
                         <li>{userProfileInfo.address[0].city}, {userProfileInfo.address[0].state} {userProfileInfo.address[0].zipCode}</li>
+                        </ul>
+                        : null}
+                        
                     </ul>
                 </div>: 
                 activeContent === 'orders' ? 

@@ -32,7 +32,7 @@ function Header(){
     let accesories = ['Hats', 'Beanies', 'Socks']
    
     return(
-        <div>
+        <div className="content-body">
             <p className='header-tag'>~ Free shipping on orders over $100.00! ~</p>
             <div className='header-bar'>
                 {products ?
